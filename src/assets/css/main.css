@@ -1,0 +1,366 @@
+/* USER VARIABLES SECTION */
+
+:root {
+	--accent: orange;
+	--text: #fff;
+	--regular-text: 16px;
+	--lineheight: 1.65;
+	--userfont: Neue Machina, sans-serif;
+	--systemfont: -apple-system, Neue Machina, sans-serif;
+}
+
+/* BOOTSTRAP SETTINGS SECTION */
+
+/* gutter 20px (10px + 10px). Comment this code for default gutter start at 1.5rem (24px) wide. */
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl { --bs-gutter-x: .625rem; }
+.row, .row > * { --bs-gutter-x: 1.25rem; }
+
+/* FONTS LOAD SECTION */
+
+@font-face { src: url("../fonts/NeueMachina-Bold.woff2") format("woff2"); font-family: "Neue Machina"; font-weight: 700; font-style: normal; }
+@font-face { src: url("../fonts/NeueMachina-Black.woff2") format("woff2"); font-family: "Neue Machina"; font-weight: 900; font-style: normal; }
+
+
+/* GENERAL CSS SETTINGS */
+
+::placeholder { color: #666; }
+::selection { background-color: var(--accent); color: #fff; }
+input, textarea { outline: none; }
+input:focus:required:invalid, textarea:focus:required:invalid { border-color: red; }
+input:required:valid, textarea:required:valid { border-color: green; }
+
+body {
+	font-family: var(--userfont);
+	font-size: var(--regular-text);
+	line-height: var(--lineheight);
+	color: var(--text);
+	min-width: 320px;
+	position: relative;
+	overflow-x: hidden;
+	background-color: #141C24;
+}
+
+/* USER STYLES */
+
+.f-bold{
+	font-weight: bold;
+}
+
+.fz-18{
+	font-size: 18px;
+}
+
+.image {
+	max-width: 100%;
+	margin-bottom: var(--bs-gutter-x);
+	border-radius: 4px;
+}
+
+.accent {
+	color: var(--accent);
+	font-weight: bold;
+}
+
+
+header{
+	margin-top: 18px;
+}
+
+header .logo{
+	font-weight: 900;
+	font-size: 21px;
+	color: #9BBE42;
+	margin-left: 3px;
+}
+
+header .warp_phone a{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 140%;
+	color: #9BBE42;
+	text-decoration: none;
+}
+
+.warp_title,
+.warp_contact_title{
+	margin-top: 39px;
+	margin-bottom: 30px;
+	font-weight: bold;
+	font-size: 44px;
+	line-height: 100%;
+	color: #FFFFFF;
+}
+
+
+
+.warp_middle{
+	margin: 0 auto 28px;
+	width: 956px;
+	height: 636px;
+	background: #070B10;
+	border-radius: 70px;
+	padding: 24px 154px;
+}
+
+.warp_contact_title{
+	margin-top: 77px;
+	margin-bottom: 90px;
+}
+
+.warp_contact a{
+	margin-top: 27px;
+	font-weight: bold;
+	font-size: 32px;
+	line-height: 120%;
+	color: #FFFFFF;
+	text-decoration: none;
+}
+
+footer{
+	margin-top: 78px;
+	background: #070B10;
+	padding-top: 24px;
+	padding-bottom: 24px;
+}
+
+.warp_copy{
+	font-weight: bold;
+	font-size: 21px;
+	line-height: 140%;
+	color: #ffffff;
+}
+
+.warp_steps {
+	position: relative;
+}
+.warp_steps::before {
+	content: '';
+	width: calc(100% - 30px);
+	height: 1px;
+	background-color:#777777;
+	position: absolute;
+	left: 15px;
+	top: 50%;
+	z-index: 1;
+}
+
+.warp_steps span{
+	border: 1px solid #777777;
+	box-sizing: border-box;
+	border-radius: 92px;
+	background-color: #070B10;
+	font-weight: bold;
+	font-size: 16px;
+	color: #777777;
+	padding: 2px 29px 1px;
+	position: relative;
+	z-index: 10;
+}
+
+.warp_steps span.active{
+	background-color: #9BBE42;
+	font-weight: bold;
+	font-size: 16px;
+	color: #070B10;
+}
+
+.input-control{
+	background: #FFFFFF;
+	border-radius: 6px;
+	border: 0;
+	line-height: 48px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #777777;
+	text-indent: 20px;
+	width: 100%;
+}
+
+.warp_data{
+	margin-top: 36px;
+}
+
+.warp_data p{
+	color: #fff;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.bt{
+	width: 100%;
+	background: #9BBE42;
+	border-radius: 6px;
+	border: 0;
+	line-height: 48px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #070B10;
+}
+
+.warp_contact-data{
+	margin-bottom: 14px;
+}
+
+.contact-date{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 140%;
+	color: #777777;
+	margin-bottom: 14px;
+}
+.warp_contact-data .date{
+	font-weight: bold;
+	font-size: 18px;
+	line-height: 140%;
+	color: #9BBE42;
+}
+
+.warp_promo_date{
+	padding-right: 50px;
+}
+
+#num_count{
+	background: #FFFFFF;
+	border-radius: 6px;
+	line-height: 48px;
+	width: 100%;
+	max-width: 129px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #141C24;
+	text-align: center;
+	border: 0;
+}
+
+#button_minus,
+#button_plus{
+	line-height: 48px;
+	border: 0;
+	background: none;
+	color: #9BBE42;
+	font-weight: bold;
+	font-size: 44px;
+}
+
+.warp_count{
+	margin-bottom: 46px;
+}
+
+.warp_text_count{
+	font-weight: bold;
+	font-size: 15px;
+	line-height: 140%;
+	color: #777777;
+}
+
+.warp_statps_1 input{
+	min-width: 300px;
+	margin-bottom: 30px;
+}
+.warp_statps_1 .bt{
+	min-width: 300px;
+}
+
+.bt-white{
+	width: 100%;
+	background: white;
+	border-radius: 6px;
+	border: 0;
+	line-height: 48px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #9BBE42;
+	position: relative;
+}
+
+.bt-white.active{
+	background-color: #9BBE42;
+	color: #070B10;
+}
+
+.bt-white span{
+	background: #BE4242;
+	border-radius: 6px;
+	font-size: 14px;
+	line-height: 140%;
+	color: #fff;
+	position: absolute;
+	right: 0;
+	top: -6px;
+	padding: 1px 4px;
+}
+
+.disabled{
+	background-color: #777777;
+	color: #070B10;
+}
+
+.warp_bt_tarif{
+	padding-bottom: 40px;
+	border-bottom: 1px solid #FFFFFF;
+	margin-bottom: 40px;
+}
+
+.warp_price .itogo{
+	font-weight: bold;
+	font-size: 18px;
+	color: #fff;
+}
+
+.warp_price .price{
+	font-weight: bold;
+	font-size: 28px;
+	color: #9BBE42;
+}
+
+.warp_price .bt{
+
+	width: 343px;
+}
+
+.result_count{
+	background: #FFFFFF;
+	border-radius: 6px;
+	font-weight: bold;
+	font-size: 18px;
+	color: #141C24;
+	line-height: 48px;
+	width: 129px;
+	text-align: center;
+	margin-left: 30px;
+}
+
+.warp_steps_3 .warp_bt_tarif button{
+	max-width: 195px;
+}
+
+.warp_steps_3 .warp_qr{
+	width: 305px;
+	height: 305px;
+	margin-bottom: 17px;
+}
+
+.warp_steps_3 p.desc_qr{
+	font-weight: bold;
+	font-size: 15px;
+	color: #777777;
+}
+
+.warp_steps_3 .bt{
+	display: block;
+	text-align: center;
+	text-decoration: none;
+}
+
+.warp_steps_3 .bt:hover{
+
+	color: #070B10;
+}
+
+.input-error{
+	color: red;
+	position: absolute;
+	bottom: 10px;
+	left: 15px;
+	font-size: 12px;
+}
