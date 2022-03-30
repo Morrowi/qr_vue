@@ -17,12 +17,69 @@
 
 /* sm <= Medium (md) */
 @media (max-width : 768px) {
-
+	.warp_middle{
+		width: auto;
+		height: 100%;
+		margin-right: 15px;
+		margin-left: 15px;
+	}
 }
 
 /* xs <= Small (sm) */
 @media (max-width : 576px) {
+	.warp_phone{
+		margin-top: 15px;
+	}
+	.warp_title, .warp_contact_title{
+		font-size: 34px;
+	}
+	.warp_contact_title{
+		margin-bottom: 35px;
+	}
 
+	.warp_middle{
+		padding: 20px 20px !important;
+		border-radius: 35px;
+	}
+	.warp_steps span.active,
+	.warp_steps span{
+		font-size: 14px;
+	}
+
+
+
+
+
+	.warp_contact a{
+		margin-top: 0;
+		margin-bottom: 25px;
+		font-weight: bold;
+		font-size: 27px;
+		line-height: normal;
+	}
+
+	footer{
+		margin-top: 15px;
+	}
+
+	.appstore{
+		width: 125px;
+	}
+	.googleplay{
+		width: 137px;
+	}
+	.warp_copy{
+		margin-top: 15px;
+	}
+	.tarif_date{
+		margin-top: 6px;
+	}
+	.tarif_date br{
+		display: none;
+	}
+	.warp_bt_tarif >div{
+		margin-bottom: 25px;
+	}
 }
 
 
