@@ -200,80 +200,83 @@ export default {
           },
 
         ).then((response) => {
-          let data = response.data;
-        /*mode 2*/
+        let data = response.data;
+        if (data.non_field_errors!==undefined) {
+          alert(data.non_field_errors);
+        } else {
+          /*mode 2*/
           //data.mode=3;
-        /**/
-          switch (data.mode){
+          /**/
+          switch (data.mode) {
             case 1:
-              this.title_h1='Новая подписка';
+              this.title_h1 = 'Новая подписка';
               break;
             case 2:
-              this.title_h1='Продление подписки';
+              this.title_h1 = 'Продление подписки';
               break;
             case 3:
-              this.title_h1='Расширение подписки';
+              this.title_h1 = 'Расширение подписки';
               break;
           }
 
-            const now = new Date(data.subscription_expiration_date);
-            this.subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(now);
+          const now = new Date(data.subscription_expiration_date);
+          this.subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(now);
 
-            this.step_2_email=data.email;
-            this.step_2_first_name=data.first_name;
-            this.step_2_last_name=data.last_name;
-            this.unpaid_qrt=data.unpaid_qrt;
+          this.step_2_email = data.email;
+          this.step_2_first_name = data.first_name;
+          this.step_2_last_name = data.last_name;
+          this.unpaid_qrt = data.unpaid_qrt;
 
 
-            for(let k in data.tariff_rates){
-              switch (data.tariff_rates[k].name){
-                case 'Подписка на месяц':
-                  data.tariff_rates[k].active=false;
-                  data.tariff_rates[k].name='1 месяц';
-                  data.tariff_rates[k].tooltip ='';
+          for (let k in data.tariff_rates) {
+            switch (data.tariff_rates[k].name) {
+              case 'Подписка на месяц':
+                data.tariff_rates[k].active = false;
+                data.tariff_rates[k].name = '1 месяц';
+                data.tariff_rates[k].tooltip = '';
 
-                  data.tariff_rates[k].subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date(data.tariff_rates[k].subscription_expiration_date));
-                  if(!data.tariff_rates[k].is_enable){
-                    data.tariff_rates[k].tooltip ='Остальные тарифы для новых терминалов недоступны, т.к. терминалы будут добавлены к текущей подписке на условиях текущей подписки';
-                  }
-                  break;
-                case 'Подписка на квартал':
-                  data.tariff_rates[k].name='3 месяца';
-                  data.tariff_rates[k].active=true;
-                  data.tariff_rates[k].sale='<span>-10%</span>';
-                  this.allPrice = data.tariff_rates[k].amount;
-                  this.selectedTarif = data.tariff_rates[k];
-                  data.tariff_rates[k].tooltip ='';
-                  data.tariff_rates[k].subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date(data.tariff_rates[k].subscription_expiration_date));
-                  if(!data.tariff_rates[k].is_enable){
-                    data.tariff_rates[k].tooltip ='Остальные тарифы для новых терминалов недоступны, т.к. терминалы будут добавлены к текущей подписке на условиях текущей подписки';
-                  }
-                  break;
-                case 'Подписка на год':
-                  data.tariff_rates[k].active=false;
+                data.tariff_rates[k].subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date(data.tariff_rates[k].subscription_expiration_date));
+                if (!data.tariff_rates[k].is_enable) {
+                  data.tariff_rates[k].tooltip = 'Остальные тарифы для новых терминалов недоступны, т.к. терминалы будут добавлены к текущей подписке на условиях текущей подписки';
+                }
+                break;
+              case 'Подписка на квартал':
+                data.tariff_rates[k].name = '3 месяца';
+                data.tariff_rates[k].active = true;
+                data.tariff_rates[k].sale = '<span>-10%</span>';
+                this.allPrice = data.tariff_rates[k].amount;
+                this.selectedTarif = data.tariff_rates[k];
+                data.tariff_rates[k].tooltip = '';
+                data.tariff_rates[k].subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date(data.tariff_rates[k].subscription_expiration_date));
+                if (!data.tariff_rates[k].is_enable) {
+                  data.tariff_rates[k].tooltip = 'Остальные тарифы для новых терминалов недоступны, т.к. терминалы будут добавлены к текущей подписке на условиях текущей подписки';
+                }
+                break;
+              case 'Подписка на год':
+                data.tariff_rates[k].active = false;
 
-                  data.tariff_rates[k].name='1 год';
-                  data.tariff_rates[k].sale='<span>-15%</span>';
-                  data.tariff_rates[k].subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date(data.tariff_rates[k].subscription_expiration_date));
-                  if(!data.tariff_rates[k].is_enable){
-                    data.tariff_rates[k].tooltip ='Остальные тарифы для новых терминалов недоступны, т.к. терминалы будут добавлены к текущей подписке на условиях текущей подписки';
-                  }
-                  break;
-              }
+                data.tariff_rates[k].name = '1 год';
+                data.tariff_rates[k].sale = '<span>-15%</span>';
+                data.tariff_rates[k].subscription_expiration_date = new Intl.DateTimeFormat("ru", {dateStyle: "long"}).format(new Date(data.tariff_rates[k].subscription_expiration_date));
+                if (!data.tariff_rates[k].is_enable) {
+                  data.tariff_rates[k].tooltip = 'Остальные тарифы для новых терминалов недоступны, т.к. терминалы будут добавлены к текущей подписке на условиях текущей подписки';
+                }
+                break;
             }
+          }
 
-            this.tarifs=data.tariff_rates;
+          this.tarifs = data.tariff_rates;
 
-            //this.tarifs=data.tariff_rates;
-
-
+          //this.tarifs=data.tariff_rates;
+          this.goToStep(2);
+        }
 
         }).catch((error) => {
             console.log(error);
           });
 
 
-      this.goToStep(2);
+
     },
     validateEmail(value) {
       // if the field is empty
@@ -290,6 +293,9 @@ export default {
     },
     validatePin(value) {
       // if the field is empty
+      if(value.length<5){
+        return 'Pin-код должен состоять из 5 символов';
+      }
       if (!value) {
         return 'Введите Pin-код';
       }
