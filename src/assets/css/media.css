@@ -81,7 +81,14 @@
 		margin-bottom: 25px;
 	}
 }
-
+@media (max-width : 390px) {
+	.warp_middle {
+		padding: 20px 10px !important;
+	}
+	.warp_price .bt{
+		width: 100%;
+	}
+}
 
 /* === MOBILE FIRST === */
 
